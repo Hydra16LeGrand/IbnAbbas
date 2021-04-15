@@ -1,0 +1,90 @@
+{% extends 'menu.html' %}
+{% block content %}
+<br><br>
+<center><b><h1 class="display-2"><ins> Modifier un Parent</ins>  </h1> </b></center>
+<br><br>
+
+<div class="container">
+	<form method="POST" action="{% url 'modifier_parent' parent_a_modifier.id %}  " enctype="multipart/form-data">
+		{% csrf_token %}
+
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="{{form.nom_parent.id_for_label}}">Nom : </label>
+			<input class="form-control" name="nom_parent" id="{{form.nom_parent.id_for_label}}" type="text" value='{{parent_a_modifier.nom_parent}}' >
+		</div>
+		<div class="form-group col-md-6">
+			<label for="{{form.prenom_parent.id_for_label}}">Prenom : </label>
+			<input class="form-control" name="prenom_parent" id="{{form.prenom_parent.id_for_label}}" type="text" value='{{parent_a_modifier.prenom_parent}}'>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="{{form.adresse_parent.id_for_label}}">Adresse : </label>
+			<input class="form-control" name="adresse_parent" id="{{form.adresse_parent.id_for_label}}" type="text" value='{{parent_a_modifier.adresse_parent}}'>
+		</div>
+		<div class="form-group col-md-6">
+			<label for="{{form.num_tel_parent.id_for_label}}">Numero de telephone: </label>
+			<input class="form-control" name="num_tel_parent" id="{{form.num_tel_parent.id_for_label}}" type="text" value='{{parent_a_modifier.num_tel_parent}}'>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="{{form.email_parent.id_for_label}}">E-mail: </label>
+		<input class="form-control" name="email_parent" id="{{form.email_parent.id_for_label}}" type="email" value='{{parent_a_modifier.email_parent}}'>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-4">
+			<label for="{{form.nationalite_parent.id_for_label}}">Nationalite : </label>
+			<input class="form-control" name="nationalite_parent" id="{{form.nationalite_parent.id_for_label}}" type="text" value='{{parent_a_modifier.nationalite_parent}}'>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="{{form.profession.id_for_label}}">Profession : </label>
+			<input class="form-control" name="profession" id="{{form.profession.id_for_label}}" type="text" value='{{parent_a_modifier.profession}}'>
+		</div>
+		<div class="form-group col-md-4">
+			<label for="lien">Lien de parente </label>
+				<select class="form-control" id="lien" name="lien_de_parente">
+					<option disabled>Choisir</option>
+					<option >Pere</option>
+					<option >Mere</option>
+					<option >Frere</option>
+					<option >Soeur</option>
+					<option >Grand Parent</option>
+					<option >Cousin</option>
+					<option >Cousine</option>
+					<option >Oncle</option>
+					<option >Tante</option>
+					<option >Autre</option>
+				</select>
+ 		</div>
+	</div>
+	<div class="form-row">
+		<div class="form-group col-md-4">
+			<label for="image">Image</label>
+			<input class="form-control" type="file" id="image" name="image">
+		</div>
+		<div class="form-group col-md-4">
+			<label for="sf">Situation financiere</label>
+			{{form.situation_financiere}}
+		</div>
+		<div class="form-group col-md-4">
+			<label for="aj">Antecedant judiciaire</label>
+			<input class="form-control" type="text" id="aj" name="antecedant_judiciaire" value="{{parent_a_modifier.antecedant_judiciaire}}">
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<input type="reset" class="form-control btn btn-outline-warning">
+		</div>
+		<div class="form-group col-md-6">
+
+			<input type="submit" class="form-control btn btn-outline-success">
+		</div>
+	</div>
+
+	</form>
+</div>	
+
+{%endblock%}

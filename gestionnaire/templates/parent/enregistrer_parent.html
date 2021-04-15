@@ -1,0 +1,97 @@
+{% extends 'menu.html' %}
+{% block content %}
+
+<br><br>
+<center><b><h1 class="display-2"><ins> Enregistrement d'un Parent</ins>  </h1> </b></center>
+<br><br>
+		
+<div class="container">
+	<form method="POST" action="{% url 'enregistrer_parent' id_eleve %}" enctype="multipart/form-data">
+		{% csrf_token %}
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="{{form.nom_parent.id_for_label}}">Nom Parent </label>
+				<input class="form-control" name="nom_parent" id="{{form.nom_parent.id_for_label}}" type="text" placeholder="Ex : Baradji">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="{{form.prenom_parent.id_for_label}}">Prenom Parent </label>
+				<input class="form-control" name="prenom_parent" id="{{form.prenom_parent.id_for_label}}" type="text" placeholder="Ex : Amara">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="{{form.adresse_parent.id_for_label}}">Adresse </label>
+				<input class="form-control" name="adresse_parent" id="{{form.adresse_parent.id_for_label}}" type="text" placeholder="Ex : Bingerville Residentiel">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="{{form.num_tel_parent.id_for_label}}">Num tel Parent </label>
+			<input class="form-control" name="num_tel_parent" id="{{form.num_tel_parent.id_for_label}}" type="text" placeholder="Ex : +225 56748529">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="{{form.email_parent.id_for_label}}">Email Parent </label>
+			<input class="form-control" name="email_parent" id="{{form.email_parent.id_for_label}}" type="email" placeholder="Ex : baradjiamara17@gmail.com">
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="{{form.nationalite_parent.id_for_label}}">Nationalite Parent </label>
+				<input class="form-control" name="nationalite_parent" id="{{form.nationalite_parent.id_for_label}}" type="text" placeholder="Ex : Ivoirienne">
+			</div>
+			
+			<div class="form-group col-md-4">
+				<label for="{{form.profession.id_for_label}}">Profession </label>
+				<input class="form-control" name="profession" id="{{form.profession.id_for_label}}" type="text" placeholder="Ex : Developpeur">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="lien">Lien de parente </label>
+				<select class="form-control" id="lien" name="lien_de_parente">
+					<option disabled>Choisir</option>
+					<option >Pere</option>
+					<option >Mere</option>
+					<option >Frere</option>
+					<option >Soeur</option>
+					<option >Grand Parent</option>
+					<option >Cousin</option>
+					<option >Cousine</option>
+					<option >Oncle</option>
+					<option >Tante</option>
+					<option >Autre</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-row">
+			
+			<div class="form-group col-md-8">
+				<label for="aj">Antecedant judiciaire</label>
+				<textarea class="form-control" name="antecedant_judiciaire" id="aj" rows="4"></textarea>
+			</div>
+			<div class="form-row col-md-4">
+				<div class="form-group">
+					<label for="image">Photo</label>
+					<input class="form-control" type="file" id="image" name="image">
+				</div><br>
+				<div class="form-group">
+					<label for="sf">Situation financiere</label><br>
+					{{form.situation_financiere}}
+				</div>
+			</div>
+		</div>
+		<!-- <div class="form-row"> <div class="form-group col-md-4"> <label for="id_co">Login de connexion</label> <input
+		class="form-control" type="text" name="login" id="id_co"> </div> <div class="form-group col-md-4"> <label
+		for="mdp">Mot de passe</label> <input class="form-control" type="password" id="mdp" name="mdp"> </div> <div
+		class="form-group col-md-4"> <label for="c_mdp">Confirmer Mot de passe</label> <input class="form-control"
+		type="password" id="c_mdp" name="c_mdp"> </div> </div> -->
+		<hr>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<center><input class="form-control btn btn-outline-warning" type="reset"></center>
+			</div>
+			<div class="form-group col-md-6">
+				<center><input class="form-control btn btn-outline-success" type="submit"></center>
+			</div>
+		</div>
+	</form>
+</div>	
+
+{%endblock%}

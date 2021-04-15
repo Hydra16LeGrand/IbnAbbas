@@ -1,0 +1,12 @@
+{% extends 'menu.html' %}
+{% block content %}
+
+<form action="{% url 'login_enseignant' %}" method="post"> 
+
+	{% csrf_token %}
+	{{ form }}
+	<input type="submit" class="btn btn-outline-success">
+
+	<a href="{% url 'logout_enseignant' %}">Deconnexion</a>
+</form>
+{% endblock %}

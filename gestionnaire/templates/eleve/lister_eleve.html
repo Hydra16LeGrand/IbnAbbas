@@ -1,0 +1,60 @@
+{% extends 'menu.html' %}
+{% block content %}
+	<br><br>
+	<center><b><h1 class="display-2"><ins> Liste des Eleves</ins>  </h1> </b></center>
+
+	<br><br>
+	<div class="form form-row">
+		<div class="form-group col-md-9"></div>
+		<div class="form-group col-md-2">
+			<a class="form-control btn btn-lg btn-bloc btn-outline-primary" href="{% url 'enregistrer_eleve' %}">Inscrire un Eleve</a>
+		</div>
+		<div class="form-group col-md-1"></div>
+	</div>
+	<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+			    <tr>
+			      <th scope="col">Nom</th>
+			      <th scope="col">Prenom</th>
+			      <th scope="col">Contact</th>
+			      <th scope="col">Adresse</th>
+			      <th scope="col">Naissance</th>
+			      <th scope="col">Classes Suivies</th>
+			      <th scope="col" colspan="3"></th>
+			    </tr>
+			  </thead>
+			<tbody>
+				{% for eleve in eleves %}
+				<tr>
+					<td>{{ eleve.nom_eleve }}</td>
+					<td>{{ eleve.prenom_eleve }}</td>
+					<td>{{ eleve.num_tel_eleve }}</td>
+					<td>{{ eleve.adresse_eleve }}</td>
+					<td>{{ eleve.date_naissance_eleve }}</td>
+					<td>
+						{% for el in eleve.classe.all %}
+							{{el.description}}<br>
+						{% endfor %}
+					</td>
+					<td>
+						
+						<a class="btn btn-outline-success" href="{% url 'modifier_eleve' eleve.id %}">Modifier</a>
+					</td>
+					<td>
+						
+						<a class="btn btn-outline-primary" href="{% url 'enregistrer_parent' eleve.id %}">Ajouter Parent</a>
+					</td>
+					<td>
+						
+						<a class="btn btn-danger" href="{% url 'supprimer_eleve' eleve.id %}">Supprimer</a>
+					</td>
+					
+
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	
+{%endblock%}

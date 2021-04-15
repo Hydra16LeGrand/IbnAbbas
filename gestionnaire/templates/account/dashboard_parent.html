@@ -1,0 +1,7 @@
+
+{% if request.user.is_authenticated %}
+	<b><center><h2>Salut {{request.user}}</h2></center></b><br>
+	<a href="{% url 'logout_parent' %}">Deconnexion</a>
+{% else %}
+	<b><center><h2>Salut bro je ne te connais pas</h2></center></b>
+{% endif %}

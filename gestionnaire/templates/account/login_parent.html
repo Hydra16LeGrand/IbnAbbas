@@ -1,0 +1,10 @@
+{% extends 'menu.html' %}
+{% block content %}
+
+<form action="{% url 'login_parent' %}" method="post"> 
+
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" class="btn btn-outline-success">
+</form>
+{% endblock %}

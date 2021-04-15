@@ -1,0 +1,7 @@
+<h1>Liste de mes classes</h1>
+
+{% for classe in enseignant.classe.all %}
+
+	<a href="{% url 'mes_eleves' classe.id %}">{{ classe.description }}</a><br>
+
+{% endfor %}

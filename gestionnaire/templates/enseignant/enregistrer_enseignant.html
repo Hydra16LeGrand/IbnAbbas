@@ -1,0 +1,114 @@
+{% extends 'menu.html' %}
+{% block content %}
+<br><br>
+<center><b><h1 class="display-2"><ins> Enregistrement d'un Enseignant</ins>  </h1> </b></center>
+<br><br>
+
+<div class="container">
+	<form method="POST" action="{% url 'enregistrer_enseignant' %}" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="form-row">
+    		<div class="form-group col-md-6">
+				<label for="{{form.nom_enseignant.id_for_label}}">Nom</label>
+				<input class="form-control" name="nom_enseignant" id="{{form.nom_enseignant.id_for_label}}" type="text" placeholder="Ex : Baradji" >
+			</div>
+			<div class="form-group col-md-6">
+				<label for="{{form.prenom_enseignant.id_for_label}}">Prenom </label>
+				<input class="form-control" name="prenom_enseignant" id="{{form.prenom_enseignant.id_for_label}}" type="text" placeholder="Ex : Amara">
+			</div>
+		</div>
+		<div class="form-row">
+			<div  class="form-group col-md-6">
+				<label for="{{form.adresse_enseignant.id_for_label}}">Adresse </label>
+				<input class="form-control" name="adresse_enseignant" id="{{form.adresse_enseignant.id_for_label}}" type="text" placeholder="Ex : Bingerville Residentiel">
+			</div>
+			<div  class="form-group col-md-6">
+				<label for="{{form.num_tel_enseignant.id_for_label}}">Contact </label>
+				<input class="form-control" name="num_tel_enseignant" id="{{form.num_tel_enseignant.id_for_label}}" type="text" placeholder="Ex : +225 56748529">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-8">
+				<label for="{{form.email_enseignant.id_for_label}}">E-mail </label>
+				<input class="form-control" name="email_enseignant" id="{{form.email_enseignant.id_for_label}}" type="email" placeholder="Ex : hydra16@baradji.com">
+			</div>
+			
+			<div class="form-group col-md-4">
+				<label for="{{form.date_naissance_enseignant.id_for_label}}">Naissance </label>
+				<input class="form-control" name="date_naissance_enseignant" id="{{form.date_naissance_enseignant.id_for_label}}" type="date" required>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="{{form.autre_profession.id_for_label}}">Autre Profession </label>
+				<input class="form-control" name="autre_profession" id="{{form.autre_profession.id_for_label}}" type="text" placeholder="Ex : Businessman">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="ap">Ancienne Profession</label>
+				<input type="text" name="ancienne_profession" class="form-control">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for=aj>Antecedant judiciaire</label>
+				<textarea class="form-control" id="aj" name="antecedant_judiciaire" rows="4"></textarea>
+			</div>
+			<div class="form-group col-md-4">
+				<label for="{{form.prof_de.id_for_label}}">Prof De</label>
+				{{form.prof_de}}
+			</div>
+			
+			<div class="form-group col-md-4">
+				<div class="form-group">
+					<label for="{{form.nationalite.id_for_label}}">Nationalite </label>
+					<input class="form-control" name="nationalite" id="{{form.nationalite.id_for_label}}" type="text" placeholder="Ex : Ivoirienne">
+				</div>
+				<div class="form-group">
+					<label for="photo">Photo</label>
+					<input class="form-control" type="file" name="image" id="photo">
+				</div>
+			</div>
+		</div>	
+
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="salaire">Salaire</label>
+				<input class="form-control" type="number" name="salaire" id="salaire">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="periode">Par periode</label>
+				<input class="form-control" type="text" name="periode" id="periode">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="{{form.regularite.id_for_label}}">Regularite</label><br>
+				{{form.regularite}}
+			</div>
+		</div>
+		<!-- <div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="log">Login de connexion</label>
+				<input class="form-control" type="text" name="login" id="log" required="True">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="mdp">Mot de passe</label>
+				<input class="form-control" type="password" name="mdp" id="mdp" required="True">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="c_mdp">Confirmer Mot de passe</label>
+				<input class="form-control" type="password" name="c_mdp" id="c_mdp" required="True">
+			</div>
+		</div> -->
+		<hr>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<center><input class="form-control btn btn-outline-warning btn-lg" type="reset"></center>
+			</div>
+			<div class="form-group col-md-6">
+				<center><input class="form-control btn btn-outline-success btn-lg" type="submit"></center>
+			</div>
+		</div>
+				
+	</form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,10 @@
+{% extends 'menu.html' %}
+
+{%  block content%}
+
+
+	<b><h1>Bienvenue {{ user_enseignant.username }}</h1></b>	
+
+	<a href="{% url 'logout_enseignant' %}">DEconnexion</a>
+
+{% endblock %}

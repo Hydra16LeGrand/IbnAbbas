@@ -1,0 +1,19 @@
+<h1>Liste des eleves de la classe {{ classe.description }}</h1>
+
+
+{% for eleve in classe.eleve.all %}
+	<p>{{ eleve.nom_eleve  }} {{ eleve.prenom_eleve }} </p>
+
+	{% empty %}
+		<h3>Aucun eleve dans cette classe</h1>
+{% endfor %}
+<form method="post" action="{% url 'noter_les_eleves' classe.id %}">
+	{% csrf_token %}
+	<select name="matiere">
+
+		{% for matiere in matieres %}
+		<option>{{ matiere.matiere }}</option>
+		{% endfor %}
+	</select>
+	<button onclick="location.href='{% url 'noter_les_eleves' classe.id %}'">Noter les eleves</button>
+</form>
